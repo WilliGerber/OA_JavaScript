@@ -1,0 +1,10 @@
+<div>
+    <textarea (input)="updateCode($event)" placeholder="Digite seu código JavaScript"></textarea>
+    <button (click)="executeCode()">Executar</button>
+    <div *ngIf="result !== null">
+      <h3>Resultado:</h3>
+      <ul>
+        <li *ngFor="let log of result">{{ log }}</li>
+      </ul>
+    </div>
+</div>
