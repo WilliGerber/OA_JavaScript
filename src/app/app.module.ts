@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './core/header/header.component';
 import { LayoutComponent } from './core/layout/layout.component';
-import { SidebarComponentComponent } from './core/sidebar-component/sidebar-component.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SidebarComponentComponent } from './core/sidebar-component/sidebar-comp
     SignupComponent,
     HeaderComponent,
     LayoutComponent,
-    SidebarComponentComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

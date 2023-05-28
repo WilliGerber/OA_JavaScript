@@ -11,7 +11,9 @@ export class CodeEditorComponent {
   resposta: any;
   error: any;
 
-  constructor(private compilerService: CompilerService) {
+  constructor(
+    private compilerService: CompilerService
+    ) {
     this.code = '';
     this.resposta = null;
     this.error = null;
