@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CodeEditorComponent } from './modules/code-editor/code-editor.component';
+import { CodeEditorComponent } from './modules/question/code-editor/code-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { Router } from '@angular/router';
@@ -17,6 +17,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './core/header/header.component';
 import { LayoutComponent } from './core/layout/layout.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { QuestionComponent } from './modules/question/question.component';
+import { ContentComponent } from './modules/content/content.component';
+import { LearningComponent } from './modules/learning/learning.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     HeaderComponent,
     LayoutComponent,
     SidebarComponent,
+    QuestionComponent,
+    ContentComponent,
+    LearningComponent,
   ],
   imports: [
     BrowserModule,

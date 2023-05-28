@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CodeEditorComponent } from './modules/code-editor/code-editor.component';
+import { CodeEditorComponent } from './modules/question/code-editor/code-editor.component';
 import { SigninComponent } from './core/auth/signin/signin.component';
 import { LayoutComponent } from './core/layout/layout.component';
+import { QuestionComponent } from './modules/question/question.component';
+import { ContentComponent } from './modules/content/content.component';
+import { LearningComponent } from './modules/learning/learning.component';
 
 
 const routes: Routes = [
@@ -17,6 +20,20 @@ const routes: Routes = [
       {
         path: 'code-editor', 
         component: CodeEditorComponent
+      },
+      {
+        path: 'conteudo',
+        component: ContentComponent,
+        children: [
+          {
+            path: 'questoes', 
+            component: QuestionComponent
+          },
+          {
+            path: 'aprendizado', 
+            component: LearningComponent
+          }
+        ]
       }
     ]
   },
