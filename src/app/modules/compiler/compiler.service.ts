@@ -4,30 +4,34 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CompilerService {
-
+  public result: any = null;
+  public error: any = null;
+  public logs: string[] = [];
   constructor() { }
 
   executeCode(code: string): any {
-    let logs: string[] = [];
+
+    this.result = null;
+    this.error = null;
+    this.logs = [];
 
     // Redefinir a função console.log para capturar os logs
     const originalConsoleLog = console.log;
     console.log = (...args: any[]) => {
-      logs.push(args.join(' '));
+      this.logs.push(args.join(' '));
       originalConsoleLog(...args);
     };
-
+    
     try {
       // Executar o código
-      eval(code);
-
+      this.result = eval(code);
       // Retornar os logs capturados
-      return logs;
-    } catch (error) {
-      return error;
+    } catch (error:any) {
+      this.error =  error.message;
     } finally {
       // Restaurar a função console.log original
       console.log = originalConsoleLog;
     }
+    return { result: this.result, logs: this.logs, error: this.error};
   }
 }

@@ -4,31 +4,29 @@ import { CompilerService } from '../compiler/compiler.service';
 @Component({
   selector: 'app-code-editor',
   templateUrl: './code-editor.component.html',
-  styleUrls: ['./code-editor.component.sass']
+  styleUrls: ['./code-editor.component.scss']
 })
 export class CodeEditorComponent {
   code: string;
-  result: any;
+  resposta: any;
   error: any;
 
   constructor(private compilerService: CompilerService) {
     this.code = '';
-    this.result = null;
+    this.resposta = null;
     this.error = null;
   }
 
-  executeCode(): void {
-    this.result = null;
+  async executeCode(compilerInputText: string): Promise<void> {
+    this.code = compilerInputText;
+    this.resposta = null;
     this.error = null;
-    
+
     try {
-      this.result = this.compilerService.executeCode(this.code);
+      this.resposta = await this.compilerService.executeCode(this.code);
+      console.log(this.resposta['error']);
     } catch (error) {
-      this.error = error;
+      // Lidar com erros
     }
-  }
-
-  updateCode(event: any): void {
-    this.code = event.target.value;
   }
 }
