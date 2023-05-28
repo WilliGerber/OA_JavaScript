@@ -14,6 +14,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HeaderComponent } from './core/header/header.component';
+import { LayoutComponent } from './core/layout/layout.component';
+import { SidebarComponentComponent } from './core/sidebar-component/sidebar-component.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CodeEditorComponent,
     SigninComponent,
     SignupComponent,
+    HeaderComponent,
+    LayoutComponent,
+    SidebarComponentComponent,
   ],
   imports: [
     BrowserModule,
