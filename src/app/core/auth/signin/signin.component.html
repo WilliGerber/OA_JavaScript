@@ -1,20 +1,20 @@
 <div style="height: 100%;" class="login-page">
     <div class="bg-opacity">
         <div class="container pt-5 text-center">
-            <span><img class="login-logo" ></span>
-            <form [formGroup]="signinForm" class="form mt-2 pr-0 text-center" #formEl>
+            <span><img class="login-logo"></span>
+            <form [formGroup]="signinForm" class="form mt-2 pr-0 text-center boxacessarconta" #formEl>
                 <div class="row text-center pt-1 pb-3">
-                    <div class="col-md-6 col-lg-5 center">
+                    <div class="acessarconta">
                         <mat-card class="text-center">
                             <mat-card-header class="pt-2 text-center">
                                 <mat-card-title class="text-center">
-                                    <b>Acessar conta</b>
+                                    <b class="acessarconta">Acessar conta</b>
                                 </mat-card-title>
                             </mat-card-header>
-                            <mat-card-subtitle>
-                                Faça o login para acessar a plataforma
+                            <mat-card-subtitle class="acessarconta">
+                                <p>Faça o login para acessar a plataforma</p>
                             </mat-card-subtitle>
-                            <mat-card-content class="mb-1">
+                            <mat-card-content class="mb-1 emailesenha">
 
                                 <div class="form-group mb-0">
                                     <mat-form-field class="width-90">
@@ -27,23 +27,28 @@
 
                                 <div class="form-group">
                                     <mat-form-field class="width-90">
-                                        <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="password">
-                                        <button class="visibility" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                            <mat-icon  color="accent">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'"
+                                            formControlName="password">
+                                        <button class="visibility" mat-icon-button matSuffix (click)="hide = !hide"
+                                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                            <mat-icon color="accent">{{hide ? 'visibility_off' :
+                                                'visibility'}}</mat-icon>
                                         </button>
                                     </mat-form-field>
                                 </div>
+
+                                <button (click)="login()" *ngIf="!loading" mat-raised-button mat-button color="accent"
+                                    class="btn btn-primary" [disabled]="signinForm.invalid" type="submit">
+                                    Entrar
+                                </button>
                             </mat-card-content>
 
                             <mat-card-actions class="pb-2">
                                 <div class="form-group">
-                                    <div class="mb-2">
-                                        <a class="small text-color-accent" routerLink="/signin/recovery"><span class="font-400 font-family">Esqueceu a senha?</span></a>
+                                    <div class="mb-2 ">
+                                        <a class="small text-color-accent" routerLink="/signin/recovery"><span
+                                                class="font-400 font-family">Esqueceu a senha?</span></a>
                                     </div>
-                                    <button (click)="login()" *ngIf="!loading" mat-raised-button mat-button color="accent"
-                                        class="btn btn-primary" [disabled]="signinForm.invalid" type="submit">
-                                        Entrar
-                                    </button>
                                     <mat-spinner class="center" *ngIf="loading" [diameter]="45">
                                     </mat-spinner>
                                 </div>
