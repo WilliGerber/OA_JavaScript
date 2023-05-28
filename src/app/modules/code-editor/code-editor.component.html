@@ -1,10 +1,18 @@
 <div>
-    <textarea (input)="updateCode($event)" placeholder="Digite seu código JavaScript"></textarea>
-    <button (click)="executeCode()">Executar</button>
-    <div *ngIf="result !== null">
-      <h3>Resultado:</h3>
-      <ul>
-        <li *ngFor="let log of result">{{ log }}</li>
-      </ul>
-    </div>
+  <textarea placeholder="Digite seu código JavaScript" #compilerInputText></textarea>
+  <button (click)="executeCode(compilerInputText.value)">Executar</button>
+  <div *ngIf="resposta !== null">
+    <h3>Resultado:</h3>
+    <ul>
+      <div *ngIf="resposta['result']">
+        <li>{{ resposta['result'] }}</li>
+      </div>
+      <div *ngIf="resposta['logs']">
+        <li *ngFor="let log of resposta['logs']">{{ log }}</li>
+      </div>
+      <div *ngIf="resposta['error']">
+        <li>{{ resposta['error'] }}</li>
+      </div>
+    </ul>
+  </div>
 </div>
