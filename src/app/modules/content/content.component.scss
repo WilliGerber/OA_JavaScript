@@ -6,6 +6,13 @@
   
   .sidebar {
     grid-column: 1;
+    position: fixed; /* Fixar o menu lateral */
+    top: 120px; /* Levar em consideração a altura do header */
+    left: 0;
+    bottom: 0;
+    width: 200px; /* Definir a largura do menu lateral */
+    z-index: 50; /* Ajustar o valor de z-index conforme necessário */
+
   }
   
   .content {

@@ -6,6 +6,10 @@
     height: 100vh;
   }
   
+  .expandMenu {
+    display: none;
+  }
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -13,14 +17,21 @@
   }
   
   li {
+    border-bottom: 1px solid var(--color2);
     margin-bottom: 5px;
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    color: var(--color4);
   }
   
   a {
-    color: var(--color5);
+    font-size: 18px;
     text-decoration: none;
   }
-  
-  a:hover {
-    color: var(--color4);
+
+  li:hover {
+    background-color: var(--color2);
+    border-bottom: 1px solid var(--color6);
+    color: var(--color5);
   }

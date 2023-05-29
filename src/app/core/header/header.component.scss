@@ -6,13 +6,28 @@ header {
     height: 120px;
   }
   
+  .logo {
+    display: flex;
+    background-color: var(--color1);
+    height: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .logo img {
     width: 100px;
     height: auto;
-    padding: 20px;
+    margin: auto;
+  }
+
+  .logo {
+    color: var(--color5);
+    cursor: pointer;
   }
 
   .center {
+    margin-left: 1rem;
     display: block;
     height: 100%;
     align-items: center;

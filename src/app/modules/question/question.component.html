@@ -1,17 +1,43 @@
 <div class="content p-5">
-
     <mat-card>
         <div class="card">
             <div class="tittle">
                 <h1 class="mt-2">Título da Questão</h1>
             </div>
-            <div>
+            <div class="question">
                 <span>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi assumenda suscipit quae saepe inventore laborum vitae, velit neque debitis modi blanditiis laboriosam! Saepe optio ipsum, libero quia fugit minima. Esse!
                 </span>
             </div>
-            <app-code-editor></app-code-editor>
+            <div class="answers">
+                <div class="text">
+                    <span *ngIf="typeForm">Assinale a alternativa correta:</span>
+                    <span *ngIf="!typeForm">Teste seu código:</span>
+                </div>
+                <div class="form-type" *ngIf="typeForm">
+                    <div class="alternatives">
+                        <div class="alternative">
+                            <span class="option">a)</span>
+                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
+                        </div>
+                        <div class="alternative">
+                            <span class="option">b)</span>
+                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
+                        </div>
+                        <div class="alternative">
+                            <span class="option">c)</span>
+                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
+                        </div>
+                        <div class="alternative">
+                            <span class="option">d)</span>
+                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-type" *ngIf="!typeForm">
+                    <app-code-editor></app-code-editor>
+                </div>
+            </div>
         </div>
     </mat-card>
-    
 </div>

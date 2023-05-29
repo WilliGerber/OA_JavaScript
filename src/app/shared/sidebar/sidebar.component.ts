@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,16 +9,9 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 
 export class SidebarComponent {
-  constructor(
-    private dataService: DataService
-  ) { }
 
-  getDataFromServer(): void {
-    // Faça a requisição para obter os dados do sidebar
+  @Input() expandMenu: boolean = true;
   
-    // Após obter os dados, armazene-os no DataService
-    // this.dataService.setSidebarData(dadosObtidos);
-  }  
 }
 
 
