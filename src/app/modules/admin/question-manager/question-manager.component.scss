@@ -1,0 +1,24 @@
+
+::ng-deep .mat-mdc-select-placeholder {
+    color: #a0a0a0;
+}
+
+.tittle {
+    border-bottom: 1px solid var(--color3);
+}
+
+.question-main {
+    border-bottom: 1px solid var(--color3);
+    .question-tittle {
+        .question-style {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+
+
+
+

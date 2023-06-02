@@ -6,6 +6,8 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { QuestionComponent } from './modules/question/question.component';
 import { ContentComponent } from './modules/content/content.component';
 import { LearningComponent } from './modules/learning/learning.component';
+import { AdminComponent } from './modules/admin/admin.component';
+import { QuestionManagerComponent } from './modules/admin/question-manager/question-manager.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,16 @@ const routes: Routes = [
           {
             path: 'aprendizado', 
             component: LearningComponent
+          }
+        ]
+      },
+      {
+        path: 'admin',
+        component: AdminComponent,
+        children: [
+          {
+            path: 'cadastro-questoes',
+            component: QuestionManagerComponent
           }
         ]
       }

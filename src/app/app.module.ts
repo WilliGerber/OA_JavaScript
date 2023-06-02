@@ -14,12 +14,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+
 import { HeaderComponent } from './core/header/header.component';
 import { LayoutComponent } from './core/layout/layout.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { QuestionComponent } from './modules/question/question.component';
 import { ContentComponent } from './modules/content/content.component';
 import { LearningComponent } from './modules/learning/learning.component';
+import { AdminComponent } from './modules/admin/admin.component';
+import { QuestionManagerComponent } from './modules/admin/question-manager/question-manager.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,8 @@ import { LearningComponent } from './modules/learning/learning.component';
     QuestionComponent,
     ContentComponent,
     LearningComponent,
+    AdminComponent,
+    QuestionManagerComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,9 @@ import { LearningComponent } from './modules/learning/learning.component';
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
