@@ -12,8 +12,9 @@
             <div class="answers">
                 <div class="text">
                     <span *ngIf="typeForm">Assinale a alternativa correta:</span>
-                    <span *ngIf="!typeForm">Teste seu código:</span>
                 </div>
+
+                <!-- Questões do tipo formulário -->
                 <div class="form-type" *ngIf="typeForm">
                     <div class="alternatives">
                         <div class="alternative">
@@ -34,6 +35,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Questões para testar e compilar o codigo -->
                 <div class="code-type" *ngIf="!typeForm">
                     <app-code-editor></app-code-editor>
                 </div>

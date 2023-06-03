@@ -1,18 +1,24 @@
-<div>
-  <textarea placeholder="Digite seu código JavaScript" #compilerInputText></textarea>
-  <button (click)="executeCode(compilerInputText.value)">Executar</button>
-  <div *ngIf="resposta !== null">
-    <h3>Resultado:</h3>
-    <ul>
-      <div *ngIf="resposta['result']">
-        <li>{{ resposta['result'] }}</li>
-      </div>
-      <div *ngIf="resposta['logs']">
-        <li *ngFor="let log of resposta['logs']">{{ log }}</li>
-      </div>
-      <div *ngIf="resposta['error']">
-        <li>{{ resposta['error'] }}</li>
-      </div>
-    </ul>
+<div class="compiler-answer">
+  <div class="compiler">
+    <span>Teste seu código:</span>
+
+    <textarea placeholder="Digite seu código JavaScript" #compilerInputText class="compiler-input" (input)="adjustTextareaHeight(compilerInputText)"></textarea>
+    <button (click)="executeCode(compilerInputText.value)">Executar</button>
+  </div>
+  <div class="code-return">
+    <div *ngIf="resposta !== null">
+      <h3>Resultado:</h3>
+      <ul>
+        <div *ngIf="resposta['result']">
+          <li>{{ resposta['result'] }}</li>
+        </div>
+        <div *ngIf="resposta['logs']">
+          <li *ngFor="let log of resposta['logs']">{{ log }}</li>
+        </div>
+        <div *ngIf="resposta['error']">
+          <li>{{ resposta['error'] }}</li>
+        </div>
+      </ul>
+    </div>
   </div>
 </div>
