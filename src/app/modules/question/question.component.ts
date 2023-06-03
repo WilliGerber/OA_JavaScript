@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent {
-  public typeForm: boolean = true;
+  public typeForm: boolean = false;
 
 }
