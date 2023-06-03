@@ -8,21 +8,26 @@ import { ContentComponent } from './modules/content/content.component';
 import { LearningComponent } from './modules/learning/learning.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { QuestionManagerComponent } from './modules/admin/question-manager/question-manager.component';
+import { SignupComponent } from './modules/signup/signup.component';
 
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: SigninComponent
-  // },
+  {
+    path: '',
+    component: SigninComponent
+  },
+  {
+    path: 'login',
+    component: SigninComponent
+  },
+  {
+    path: 'cadastre-se',
+    component: SignupComponent
+  },
   { 
     path: '',
     component: LayoutComponent,
     children: [
-      {
-        path: 'code-editor', 
-        component: CodeEditorComponent
-      },
       {
         path: 'conteudo',
         component: ContentComponent,
@@ -49,10 +54,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'login',
-    component: SigninComponent
-  }
+  
 ];
 
 @NgModule({

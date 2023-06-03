@@ -119,6 +119,8 @@ mat-select {
     }
 }
 
+
+
 ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
     box-shadow: inset 0px 0px 5px 0.5px rgba(235,100,64,1); // Personalize a cor de fundo quando checked for true
 }
@@ -148,6 +150,18 @@ mat-select {
 
 .pr-1 {
     padding-right: 1rem;
+}
+
+.pt-1 {
+    padding-top: 1rem;
+}
+
+.pb-1 {
+    padding-bottom: 1rem;
+}
+
+.pt-2 {
+    padding-top: 2rem;
 }
 
 .mt-1 {
