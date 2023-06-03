@@ -10,6 +10,7 @@ export class CodeEditorComponent {
   code: string;
   resposta: any;
   error: any;
+  lines: number[];
 
   constructor(
     private compilerService: CompilerService
@@ -17,11 +18,23 @@ export class CodeEditorComponent {
     this.code = '';
     this.resposta = null;
     this.error = null;
+    this.lines = [];
   }
+
+  // adjustTextareaHeight(textarea: HTMLTextAreaElement): void {
+  //   textarea.style.height = 'auto';
+  //   textarea.style.height = `${textarea.scrollHeight}px`;
+  // }
 
   adjustTextareaHeight(textarea: HTMLTextAreaElement): void {
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
+    this.updateLineNumbers(textarea.value);
+  }
+
+  updateLineNumbers(value: string): void {
+    const lineCount = value.split('\n').length;
+    this.lines = Array.from({ length: lineCount }, (_, index) => index + 1);
   }
 
   async executeCode(compilerInputText: string): Promise<void> {

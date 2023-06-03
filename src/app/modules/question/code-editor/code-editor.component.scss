@@ -3,20 +3,68 @@
         display: flex;
         flex-direction: column;
         padding: 0 1rem 1rem 1rem;
+        justify-content: center;
         span {
             margin-bottom: 1rem;
         }
-        .compiler-input {
+        .text-editor {
             min-height: 30vh;
-            height: auto;
             color: var(--color1);
-            resize: none;
             background-color: var(--color5);
             border-radius: 10px;
-            overflow: hidden;
-        }
-        .compiler-input::placeholder {
-            color: var(--color1);
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 0.5rem;
+            .compiler-input-container {
+                display: flex;
+                .line-numbers {
+                    width: 50px;
+                    background-color: var(--color5);
+                    padding: 10px;
+                    text-align: right;
+                    .line-number {
+                        color: #999;
+                    }
+                }
+                .compiler-input-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
+                    .compiler-input {
+
+                        min-height: 30vh;
+                        height: auto;
+                        color: var(--color1);
+                        resize: none;
+                        background-color: var(--color5);
+                        border-radius: 10px;
+                        overflow: hidden;
+                        margin-top: 0; 
+                    }
+                    .compiler-input::placeholder {
+                        color: var(--color1);
+                    }
+                    // .compiler-input:focus-visible {
+                    //     outline: none;
+                    // }
+                    .compiler-input:focus-visible::placeholder {
+                        color: var(--color5);
+                    }
+                }
+            }
+            button {
+                border: 1px solid var(--color6);
+                background-color: var(--color7);
+                border-radius: 10px;
+                line-height: 2;
+                width: 20%;
+                margin-top: 1rem;
+                color: var(--color1);
+                transition: 0.1s ease;
+            }
+            button:hover {
+                text-shadow: 0px 0px 1px rgba(235,100,64,1);;
+                box-shadow: inset 0px 0px 5px 0.5px rgba(235,100,64,1);
+            }
         }
     }
 }

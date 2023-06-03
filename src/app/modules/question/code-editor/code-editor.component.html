@@ -1,9 +1,20 @@
 <div class="compiler-answer">
   <div class="compiler">
     <span>Teste seu código:</span>
-
-    <textarea placeholder="Digite seu código JavaScript" #compilerInputText class="compiler-input" (input)="adjustTextareaHeight(compilerInputText)"></textarea>
-    <button (click)="executeCode(compilerInputText.value)">Executar</button>
+    <div class="text-editor">
+      <div class="compiler-input-container">
+        <div class="line-numbers">
+          <div *ngFor="let line of lines" class="line-number">{{ line }}</div>
+        </div>
+        <div class="compiler-input-wrapper">
+          <textarea placeholder="Digite seu código JavaScript" #compilerInputText class="compiler-input" (input)="adjustTextareaHeight(compilerInputText)"></textarea>
+        </div>
+      </div>
+      <!-- <textarea placeholder="Digite seu código JavaScript" #compilerInputText class="compiler-input" (input)="adjustTextareaHeight(compilerInputText)"></textarea> -->
+      <div class="row-right">
+        <button (click)="executeCode(compilerInputText.value)">Executar</button>
+      </div>
+    </div>
   </div>
   <div class="code-return">
     <div *ngIf="resposta !== null">
