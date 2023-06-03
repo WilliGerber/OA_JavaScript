@@ -66,11 +66,12 @@ body {
 .content {
     grid-column: 2;
     width: calc(100vw - 217px);
+
 }
 
 .card {
     background-color: var(--color1);
-    border-radius: 20px;
+    border-radius: 10px;
     border: 0;
     padding: 2rem;
     min-width: fit-content;
@@ -105,6 +106,19 @@ mat-select {
     margin-top: 1rem;
 }
 
+.btn-save {
+    padding: 0.5rem;
+    min-width: 100px;
+    border: none;
+    background-color: var(--color8);
+    color: var(--color1);
+    border-radius: 10px;
+    margin-top: 1rem;
+    &:hover {
+        background-color: var(--color7);
+    }
+}
+
 ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
     box-shadow: inset 0px 0px 5px 0.5px rgba(235,100,64,1); // Personalize a cor de fundo quando checked for true
 }
@@ -136,3 +150,10 @@ mat-select {
     padding-right: 1rem;
 }
 
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}

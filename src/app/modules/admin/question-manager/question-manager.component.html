@@ -14,18 +14,14 @@
                             <input placeholder="Tag da Questão" required [(ngModel)]="question.tag" name="tag">
                         </div>
                         <div class="col-3 pr-1">
-                            <mat-select placeholder="Dificuldade" [(ngModel)]="question.level" name="level">
-                                <!-- <option name="nivel">Iniciante</option>
-                                <option name="nivel">Intermediário</option>
-                                <option name="nivel">Avançado</option> -->
-                            </mat-select>
+                            <mat-select placeholder="Matéria" [(ngModel)]="question.subject" name="subject">
+                                <mat-option *ngFor="let subject of subjects" [value]="subject.id">{{ subject.description }}</mat-option>
+                              </mat-select>
                         </div>
                         <div class="col-3 pr-1">
-                            <mat-select placeholder="Matéria" [(ngModel)]="question.subject" name="subject">
-                                <option name="tipo">HTML5</option>
-                                <option name="tipo">CSS3</option>
-                                <option name="tipo">JavaScript</option>
-                            </mat-select>
+                            <mat-select placeholder="Dificuldade" [(ngModel)]="question.level" name="level">
+                                <mat-option *ngFor="let level of levels" [value]="level.id">{{ level.description }}</mat-option>
+                              </mat-select>
                         </div>
                         <div class="question-style col-2">
                             <mat-slide-toggle class="slide-toogle" [(ngModel)]="question.formType" (change)="toggleChecked()" name="formType">
@@ -38,25 +34,47 @@
                     <textarea id="message" class="question-header-input" placeholder="Pergunta" required [(ngModel)]="question.header" name="header"></textarea>
                 </div>
             </form>
-                <div class="moldura-externa">
-                    <label for="alternativa1">Se for Formulário:</label>
-                    <div class="moldura-interna">
-                        Alternativa 1
+            <div class="alternatives">
+                <h3>Alternativas</h3>
+                <div class="card">
+                    <div class="alternative">
+                        <span>a)</span>
                     </div>
-                    <div class="moldura-interna">
-                        <label for="alternativa2">Alternativa 2</label>
-                    </div>
-                    <div class="moldura-interna">
-                        <label for="alternativa3">Alternativa 3</label>
-                    </div>
-                    <div class="moldura-interna">
-                        <label for="alternativa4">Alternativa 4</label>
-                    </div>
-                    <div class="moldura-interna">
-                        <label for="alternativa5">Alternativa 5</label>
+                    <div class="alternative-text">
+                        <textarea type="text" placeholder="Insira o texto da alternativa"></textarea>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="alternative">
+                        <span>b)</span>
+                    </div>
+                    <div class="alternative-text">
+                        <textarea type="text" placeholder="Insira o texto da alternativa"></textarea>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="alternative">
+                        <span>c)</span>
+                    </div>
+                    <div class="alternative-text">
+                        <textarea type="text" placeholder="Insira o texto da alternativa"></textarea>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="alternative">
+                        <span>d)</span>
+                    </div>
+                    <div class="alternative-text">
+                        <textarea type="text" placeholder="Insira o texto da alternativa"></textarea>
+                    </div>
+                </div>
+                <div class="set-row justify-content-between mt-2">
+                    <div class="card add-button">
+                        <mat-icon>add</mat-icon>
+                    </div>
+                    <button class="btn-save" (click)="saveQuestion()">Salvar</button>
+                </div>
+            </div>
         </div>
     </mat-card>
-    
 </div>
