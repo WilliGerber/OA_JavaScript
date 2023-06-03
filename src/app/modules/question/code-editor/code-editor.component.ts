@@ -21,17 +21,13 @@ export class CodeEditorComponent {
     this.lines = [];
   }
 
-  // adjustTextareaHeight(textarea: HTMLTextAreaElement): void {
-  //   textarea.style.height = 'auto';
-  //   textarea.style.height = `${textarea.scrollHeight}px`;
-  // }
-
   adjustTextareaHeight(textarea: HTMLTextAreaElement): void {
-    textarea.style.height = 'auto';
-    textarea.style.height = `${textarea.scrollHeight}px`;
+    console.log(textarea)
+    textarea.style.minHeight = 'auto';
+    textarea.style.minHeight = `${Math.max(textarea.scrollHeight, 30 * window.innerHeight / 100)}px`;;
     this.updateLineNumbers(textarea.value);
   }
-
+  
   updateLineNumbers(value: string): void {
     const lineCount = value.split('\n').length;
     this.lines = Array.from({ length: lineCount }, (_, index) => index + 1);
