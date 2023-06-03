@@ -1,44 +1,42 @@
 <div class="p-5 .content">
     <mat-card>
         <div class="card">
-            <div class="tittle">
+            <div class="title">
                 <h1>Cadastrar Questão</h1>
             </div>
             <form class="question-main">
-                <div class="question-tittle">
+                <div class="question-title">
                     <div class="set-row">
-                        <input class="col-12" placeholder="Título da Questão" required>
+                        <input class="col-12" placeholder="Título da Questão" required [(ngModel)]="question.title" name="title">
                     </div>
                     <div class="set-row">
                         <div class="col-4 pr-1">
-                            <input placeholder="Tag da Questão" required>
+                            <input placeholder="Tag da Questão" required [(ngModel)]="question.tag" name="tag">
                         </div>
                         <div class="col-3 pr-1">
-                            <mat-select placeholder="Dificuldade">
+                            <mat-select placeholder="Dificuldade" [(ngModel)]="question.level" name="level">
                                 <!-- <option name="nivel">Iniciante</option>
                                 <option name="nivel">Intermediário</option>
                                 <option name="nivel">Avançado</option> -->
                             </mat-select>
                         </div>
                         <div class="col-3 pr-1">
-                            <mat-select placeholder="Matéria">
+                            <mat-select placeholder="Matéria" [(ngModel)]="question.subject" name="subject">
                                 <option name="tipo">HTML5</option>
                                 <option name="tipo">CSS3</option>
                                 <option name="tipo">JavaScript</option>
                             </mat-select>
                         </div>
                         <div class="question-style col-2">
-                            <mat-slide-toggle>
+                            <mat-slide-toggle class="slide-toogle" [(ngModel)]="question.formType" (change)="toggleChecked()" name="formType">
                                 Formulário
                             </mat-slide-toggle>
                         </div>
-                        
                     </div>
                 </div>
                 <div class="question-header">
-                    <textarea id="message" placeholder="Pergunta" required></textarea>
+                    <textarea id="message" class="question-header-input" placeholder="Pergunta" required [(ngModel)]="question.header" name="header"></textarea>
                 </div>
-                
             </form>
                 <div class="moldura-externa">
                     <label for="alternativa1">Se for Formulário:</label>
@@ -58,13 +56,6 @@
                         <label for="alternativa5">Alternativa 5</label>
                     </div>
                 </div>
-            <div class="form-box">
-                <h3>&nbsp;</h3>
-                <hr>
-                <form>
-                    
-                </form>
-            </div>
         </div>
     </mat-card>
     

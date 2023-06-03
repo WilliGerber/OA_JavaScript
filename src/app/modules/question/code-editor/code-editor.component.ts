@@ -40,7 +40,7 @@ export class CodeEditorComponent {
 
     try {
       this.resposta = await this.compilerService.executeCode(this.code);
-      console.log(this.resposta['error']);
+      console.log(this.resposta);
     } catch (error) {
       // Lidar com erros
     }
