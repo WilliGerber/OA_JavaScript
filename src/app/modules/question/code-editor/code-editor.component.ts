@@ -19,6 +19,11 @@ export class CodeEditorComponent {
     this.error = null;
   }
 
+  adjustTextareaHeight(textarea: HTMLTextAreaElement): void {
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  }
+
   async executeCode(compilerInputText: string): Promise<void> {
     this.code = compilerInputText;
     this.resposta = null;
