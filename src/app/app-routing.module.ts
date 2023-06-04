@@ -24,7 +24,7 @@ const routes: Routes = [
     path: 'cadastre-se',
     component: SignupComponent
   },
-  { 
+  {
     path: '',
     component: LayoutComponent,
     children: [
@@ -33,11 +33,15 @@ const routes: Routes = [
         component: ContentComponent,
         children: [
           {
-            path: 'questoes', 
+            path: 'questoes',
             component: QuestionComponent
           },
           {
-            path: 'aprendizado', 
+            path: 'questoes/:id',
+            component: QuestionComponent // Componente para exibir detalhes da questão
+          },
+          {
+            path: 'aprendizado',
             component: LearningComponent
           }
         ]
@@ -54,7 +58,7 @@ const routes: Routes = [
       }
     ]
   },
-  
+
 ];
 
 @NgModule({

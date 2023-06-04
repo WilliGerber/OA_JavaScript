@@ -12,12 +12,12 @@ export class ContentService {
 
   constructor(private http: HttpClient) {}
   //Levels
-  getLevels(): Observable<Level> {
-    return this.http.get<Level>(this.apiUrl + "level");
+  getLevels(): Observable<Level[]> {
+    return this.http.get<Level[]>(this.apiUrl + "level");
   }
 
   //Subjects
-  getSubjects(): Observable<Subject> {
-    return this.http.get<Subject>(this.apiUrl + "subject");
+  getSubjects(): Observable<Subject[]> {
+    return this.http.get<Subject[]>(this.apiUrl + "subject");
   }
 }

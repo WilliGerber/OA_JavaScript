@@ -4,6 +4,7 @@ import { Question } from 'src/app/models/question';
 import { Subject } from 'src/app/models/subject';
 import { ContentService } from 'src/app/services/content-service/content.service';
 import { QuestionService } from 'src/app/services/question-service/question.service';
+import { Observer } from 'rxjs';
 @Component({
   selector: 'app-question-manager',
   templateUrl: './question-manager.component.html',
@@ -11,19 +12,19 @@ import { QuestionService } from 'src/app/services/question-service/question.serv
 })
 
 export class QuestionManagerComponent implements OnInit {
-  
+
   question: Question = {
     id: 0,
     title: '',
     tag: '',
-    level: '',
-    subject: '',
-    formType: false,
-    header: ''
+    subject_id: '',
+    level_id: '',
+    isForm: false,
+    question: ''
   };
-  formType: boolean = false;
-  levels: Level[] = [];
-  subjects: Subject[] = [];
+  public formType: boolean = false;
+  public levels: Level[] = [];
+  public subjects: Subject[] = [];
 
   constructor(
     private questionService: QuestionService,
@@ -40,6 +41,7 @@ export class QuestionManagerComponent implements OnInit {
   }
 
   saveQuestion(): void {
+    console.log(this.question)
     this.questionService.createQuestion(this.question)
       .subscribe(question => {
         console.log('Question created:', question);
@@ -48,26 +50,28 @@ export class QuestionManagerComponent implements OnInit {
   }
 
   getLevels() {
-    this.contentService.getLevels().subscribe(
-      (levels) => {
-        // this.levels = levels;
-        console.log(levels); // Faça o que for necessário com os níveis retornados
+    this.contentService.getLevels().subscribe({
+      next: (result) => {
+        result.forEach((item) => {
+          this.levels.push(item);
+        });
       },
-      (error: any) => {
+      error: (error) => {
         console.error(error);
       }
-    );
+    });
   }
 
   getSubjects() {
-    this.contentService.getSubjects().subscribe(
-      // (subjects: Subject[]) => {
-      //   this.subjects = subjects;
-      //   console.log(this.subjects); // Faça o que for necessário com os níveis retornados
-      // },
-      // (error: any) => {
-      //   console.error(error);
-      // }
-    );
+    this.contentService.getSubjects().subscribe({
+      next: (result) => {
+        result.forEach((item) => {
+          this.subjects.push(item);
+        });
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
   }
 }

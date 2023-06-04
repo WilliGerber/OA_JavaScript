@@ -11,30 +11,30 @@
                     </div>
                     <div class="set-row">
                         <div class="col-4 pr-1">
-                            <input placeholder="Tag da Questão" required [(ngModel)]="question.tag" name="tag">
+                          <input placeholder="Tag da Questão" required [(ngModel)]="question.tag" name="tag">
                         </div>
                         <div class="col-3 pr-1">
-                            <mat-select placeholder="Matéria" [(ngModel)]="question.subject" name="subject">
-                                <mat-option *ngFor="let subject of subjects" [value]="subject.id">{{ subject.description }}</mat-option>
-                              </mat-select>
+                          <mat-select placeholder="Matéria" (selectionChange)="question.subject_id = $event.value">
+                            <mat-option *ngFor="let subject of subjects" [value]="subject.id_subject">{{ subject.description }}</mat-option>
+                          </mat-select>
                         </div>
                         <div class="col-3 pr-1">
-                            <mat-select placeholder="Dificuldade" [(ngModel)]="question.level" name="level">
-                                <mat-option *ngFor="let level of levels" [value]="level.id">{{ level.description }}</mat-option>
-                              </mat-select>
+                            <mat-select placeholder="Dificuldade" (selectionChange)="question.level_id = $event.value">
+                              <mat-option *ngFor="let level of levels" [value]="level.id_level">{{ level.description }}</mat-option>
+                            </mat-select>
                         </div>
                         <div class="question-style col-2">
-                            <mat-slide-toggle class="slide-toogle" [(ngModel)]="question.formType" (change)="toggleChecked()" name="formType">
-                                Formulário
-                            </mat-slide-toggle>
+                          <mat-slide-toggle class="slide-toogle" [(ngModel)]="question.isForm" (change)="toggleChecked()" name="formType">
+                            Formulário
+                          </mat-slide-toggle>
                         </div>
                     </div>
                 </div>
-                <div class="question-header">
-                    <textarea id="message" class="question-header-input" placeholder="Pergunta" required [(ngModel)]="question.header" name="header"></textarea>
+                <div class="question-header" [(ngModel)]="question.question">
+                    <textarea id="message" class="question-header-input" placeholder="Pergunta" required [(ngModel)]="question.question" name="header"></textarea>
                 </div>
             </form>
-            <div class="alternatives">
+            <div class="alternatives" *ngIf="question.isForm">
                 <h3>Alternativas</h3>
                 <div class="card">
                     <div class="alternative">

@@ -1,4 +1,4 @@
 export interface Level {
-    id: number;
+    id_level: number;
     description: string;
 }
