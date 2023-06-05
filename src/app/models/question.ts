@@ -1,5 +1,5 @@
 export interface Question {
-    id: number;
+    id_question: number;
     title: string;
     tag: string;
     level_id: string;

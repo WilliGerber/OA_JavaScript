@@ -9,13 +9,16 @@ import { LearningComponent } from './modules/learning/learning.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { QuestionManagerComponent } from './modules/admin/question-manager/question-manager.component';
 import { SignupComponent } from './modules/signup/signup.component';
+import { IntroComponent } from './modules/intro/intro.component';
+import { LearnManagerComponent } from './modules/admin/learn-manager/learn-manager.component';
+import { InitialComponent } from './modules/initial/initial.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: SigninComponent
-  },
+  // {
+  //   path: '',
+  //   component: SigninComponent
+  // },
   {
     path: 'login',
     component: SigninComponent
@@ -28,6 +31,28 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
+      {
+        path: '',
+        component: InitialComponent
+      },
+      {
+        path: 'introducao',
+        component: IntroComponent,
+        children: [
+          {
+            path: 'html',
+            component: IntroComponent
+          },
+          {
+            path: 'css',
+            component: IntroComponent
+          },
+          {
+            path: 'javascript',
+            component: IntroComponent
+          }
+        ]
+      },
       {
         path: 'conteudo',
         component: ContentComponent,
@@ -44,6 +69,7 @@ const routes: Routes = [
             path: 'aprendizado',
             component: LearningComponent
           }
+
         ]
       },
       {
@@ -53,6 +79,10 @@ const routes: Routes = [
           {
             path: 'cadastro-questoes',
             component: QuestionManagerComponent
+          },
+          {
+            path: 'cadastro-conteudo',
+            component: LearnManagerComponent
           }
         ]
       }

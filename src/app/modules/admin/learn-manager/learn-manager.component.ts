@@ -1,35 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { Level } from 'src/app/models/level';
-import { Question } from 'src/app/models/question';
+import { Learn } from 'src/app/models/learn';
 import { Subject } from 'src/app/models/subject';
 import { ContentService } from 'src/app/services/content-service/content.service';
-import { QuestionService } from 'src/app/services/question-service/question.service';
-import { Observer } from 'rxjs';
+import { LearnService } from 'src/app/services/learn-service/learn.service';
+
 @Component({
-  selector: 'app-question-manager',
-  templateUrl: './question-manager.component.html',
-  styleUrls: ['./question-manager.component.scss']
+  selector: 'app-learn-manager',
+  templateUrl: './learn-manager.component.html',
+  styleUrls: ['./learn-manager.component.scss']
 })
-
-export class QuestionManagerComponent implements OnInit {
-
-  question: Question = {
-    id_question: 0,
+export class LearnManagerComponent implements OnInit {
+  learn: Learn = {
+    id_learn: 0,
     title: '',
     tag: '',
-    subject_id: '',
     level_id: '',
-    isForm: false,
-    question: ''
+    subject_id: '',
+    text: ''
   };
   public formType: boolean = false;
   public levels: Level[] = [];
   public subjects: Subject[] = [];
 
   constructor(
-    private questionService: QuestionService,
+    private learnService: LearnService,
     private contentService: ContentService
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.getLevels();
@@ -40,20 +37,17 @@ export class QuestionManagerComponent implements OnInit {
     this.formType = !this.formType;
   }
 
-  saveQuestion(): void {
-    this.questionService.createQuestion(this.question)
-      .subscribe(question => {
-        console.log('Question created:', question);
-        // Limpar o formulário ou redirecionar para outra página, se necessário
-      });
+  saveLearn(): void {
+    // this.learnService.createLearn(this.learn).subscribe(learn => {
+    //   console.log('Learn created:', learn);
+    //   // Limpar o formulário ou redirecionar para outra página, se necessário
+    // });
   }
 
   getLevels() {
     this.contentService.getLevels().subscribe({
       next: (result) => {
-        result.forEach((item) => {
-          this.levels.push(item);
-        });
+        this.levels = result;
       },
       error: (error) => {
         console.error(error);
@@ -64,9 +58,7 @@ export class QuestionManagerComponent implements OnInit {
   getSubjects() {
     this.contentService.getSubjects().subscribe({
       next: (result) => {
-        result.forEach((item) => {
-          this.subjects.push(item);
-        });
+        this.subjects = result;
       },
       error: (error) => {
         console.error(error);

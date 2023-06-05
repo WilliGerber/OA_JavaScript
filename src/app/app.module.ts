@@ -30,6 +30,9 @@ import { QuestionManagerComponent } from './modules/admin/question-manager/quest
 
 import { QuestionService } from './services/question-service/question.service';
 import { ContentService } from './services/content-service/content.service';
+import { IntroComponent } from './modules/intro/intro.component';
+import { LearnManagerComponent } from './modules/admin/learn-manager/learn-manager.component';
+import { InitialComponent } from './modules/initial/initial.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { ContentService } from './services/content-service/content.service';
     LearningComponent,
     AdminComponent,
     QuestionManagerComponent,
+    IntroComponent,
+    LearnManagerComponent,
+    InitialComponent,
   ],
   imports: [
     BrowserModule,

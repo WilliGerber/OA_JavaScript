@@ -1,0 +1,123 @@
+
+::ng-deep .mat-mdc-select-placeholder {
+  color: #a0a0a0;
+}
+
+.title {
+  border-bottom: 1px solid var(--color3);
+}
+
+.learn-main {
+  border-bottom: 1px solid var(--color3);
+  .learn-title {
+      .learn-style {
+          margin-top: 12px;
+          display: flex;
+          align-items: center;
+      }
+  }
+  .tag {
+    padding-right: 0.5rem;
+    input {
+      height: 100%;
+    }
+  }
+  .subject {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+  .level {
+    padding-left: 0.5rem;
+  }
+  .learn-header {
+      overflow: hidden;
+      border: 1px solid var(--color5);
+      border-radius: 14px;
+      background-color: #ffffff;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      .learn-header-input {
+          margin: 0;
+          min-height: 20vh;
+          border-radius: 0;
+          border: 0px;
+          resize: none;
+          overflow: auto;
+          padding-left: 1rem;
+          padding-top: 0.7rem;
+          &::-webkit-scrollbar-track {
+              background-color: transparent;
+          }
+          &:focus-visible {
+              box-shadow: none;
+          }
+      }
+      &:focus-within {
+          box-shadow: 0px 0px 5px 0px rgba(55,96,99,0.8);
+      }
+  }
+}
+
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  box-shadow: inset 0px 0px 5px 0.5px rgba(235,100,64,1); // Personalize a cor de fundo quando checked for true
+}
+::ng-deep .mat-slide-toggle.mat-checked .mdc-switch__shadow {
+  box-shadow: inset 0px 0px 5px 0.5px rgba(235,100,64,1);
+}
+
+.alternatives {
+  margin-top: 1rem;
+  .card {
+      display: flex;
+      flex-direction: row;
+      background-color: var(--color2);
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      .alternative {
+          display: flex;
+          align-items: center;
+      }
+      .alternative-text {
+          display: flex;
+          align-items: center;
+          padding-left: 1rem;
+          width: 100%;
+          textarea {
+              margin: 0;
+              resize: none;
+              min-height: 8vh;
+              &:focus-visible {
+                  background-color: var(--color2);
+              }
+              &:focus-visible::placeholder {
+                  color: transparent;
+              }
+          }
+      }
+      &:focus-within {
+          background-color: var(--color3);
+      }
+  }
+  .add-button {
+      width: max-content;
+      padding: 0.5rem;
+      cursor: pointer;
+      background-color: var(--color2);
+      mat-icon {
+          color: var(--color7);
+      }
+      &:hover {
+          background-color: var(--color3);
+      }
+  }
+}
+
+::ng-deep {
+#mat-select-0-panel {
+  height: 200px;
+  background: white !important;
+  z-index: 9999 !important;
+}
+}

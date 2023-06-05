@@ -26,6 +26,11 @@
     }
 }
 
+.app-content {
+  background-color: var(--color5) !important;
+
+}
+
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
   z-index: 99999 !important;
 }
@@ -81,15 +86,13 @@ body {
 .content {
     grid-column: 2;
     width: calc(100vw - 217px);
-
 }
 
 .card {
-    background-color: var(--color1);
+    background-color: var(--color2);
     border-radius: 10px;
     border: 0;
     padding: 2rem;
-    // min-width: fit-content;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
@@ -121,6 +124,14 @@ mat-select {
     margin-top: 1rem;
 }
 
+app-intro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
 .btn-save {
     padding: 0.5rem;
     min-width: 100px;
@@ -134,7 +145,12 @@ mat-select {
     }
 }
 
-
+.sub-select {
+  border: none;
+  background-color: transparent;
+  max-width: 80%;
+  margin-top: 0.5rem;
+}
 
 ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
     box-shadow: inset 0px 0px 5px 0.5px rgba(235,100,64,1); // Personalize a cor de fundo quando checked for true

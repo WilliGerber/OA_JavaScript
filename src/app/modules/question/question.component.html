@@ -2,20 +2,20 @@
     <mat-card>
         <div class="card">
             <div class="tittle">
-                <h1 class="mt-2">Título da Questão</h1>
+                <h1 class="mt-2">{{question.title}}</h1>
             </div>
             <div class="question">
                 <span>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi assumenda suscipit quae saepe inventore laborum vitae, velit neque debitis modi blanditiis laboriosam! Saepe optio ipsum, libero quia fugit minima. Esse!
+                  {{question.question}}
                 </span>
             </div>
             <div class="answers">
                 <div class="text">
-                    <span *ngIf="typeForm">Assinale a alternativa correta:</span>
+                    <span *ngIf="question.isForm">Assinale a alternativa correta:</span>
                 </div>
 
                 <!-- Questões do tipo formulário -->
-                <div class="form-type" *ngIf="typeForm">
+                <div class="form-type" *ngIf="question.isForm">
                     <div class="alternatives">
                         <div class="alternative">
                             <span class="option">a)</span>
@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- Questões para testar e compilar o codigo -->
-                <div class="code-type" *ngIf="!typeForm">
+                <div class="code-type" *ngIf="!question.isForm">
                     <app-code-editor></app-code-editor>
                 </div>
             </div>

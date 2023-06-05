@@ -1,0 +1,39 @@
+<div class="p-5 .content">
+  <mat-card>
+      <div class="card">
+          <div class="title">
+              <h1>Cadastrar Conteúdo</h1>
+          </div>
+          <form class="learn-main">
+              <div class="learn-title">
+                  <div class="set-row">
+                      <input class="col-12" placeholder="Título do Conteúdo" required [(ngModel)]="learn.title" name="title">
+                  </div>
+                  <div class="set-row">
+                      <div class="col-4 tag">
+                        <input placeholder="Tag do Conteúdo" required [(ngModel)]="learn.tag" name="tag">
+                      </div>
+                      <div class="col-4 subject">
+                        <mat-select placeholder="Matéria" (selectionChange)="learn.subject_id = $event.value">
+                          <mat-option *ngFor="let subject of subjects" [value]="subject.id_subject">{{ subject.description }}</mat-option>
+                        </mat-select>
+                      </div>
+                      <div class="col-4 level">
+                          <mat-select placeholder="Dificuldade" (selectionChange)="learn.level_id = $event.value">
+                            <mat-option *ngFor="let level of levels" [value]="level.id_level">{{ level.description }}</mat-option>
+                          </mat-select>
+                      </div>
+                      <!-- <div class="learn-style col-2">
+                        <mat-slide-toggle class="slide-toogle" [(ngModel)]="learn.isForm" (change)="toggleChecked()" name="formType">
+                          Formulário
+                        </mat-slide-toggle>
+                      </div> -->
+                  </div>
+              </div>
+              <div class="learn-header" [(ngModel)]="learn.text">
+                  <textarea id="message" class="learn-header-input" placeholder="Pergunta" required [(ngModel)]="learn.text" name="header"></textarea>
+              </div>
+          </form>
+      </div>
+  </mat-card>
+</div>
