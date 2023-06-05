@@ -15,7 +15,7 @@
                 </div>
 
                 <!-- Questões do tipo formulário -->
-                <div class="form-type" *ngIf="question.isForm">
+                <!-- <div class="form-type" *ngIf="question.isForm">
                   <div class="alternatives">
                     <div class="alternative" *ngFor="let alternative of question.alternatives">
                       <span class="option">{{ alternative.option }}</span>
@@ -23,6 +23,28 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="alternative" *ngFor="let alternative of question.alternatives"
+                    [ngClass]="{'selected': alternative.selected, 'correct': alternative.correct, 'incorrect': alternative.selected && !alternative.correct}"
+                    (click)="checkAnswer(alternative)">
+                  <span class="option">{{ alternative.option }}</span>
+                  <span class="alternative-text">{{ alternative.text }}</span>
+                </div> -->
+
+
+                <div class="form-type" *ngIf="question.isForm">
+                  <div class="alternatives">
+                    <div class="alternative" *ngFor="let alternative of question.alternatives" [ngClass]="{
+                      'selected': alternative.selected,
+                      'correct': alternative.correct,
+                      'incorrect': !alternative.correct && alternative.selected
+                    }" (click)="checkAnswer(alternative)">
+                      <span class="option">{{ alternative.option }}</span>
+                      <span class="alternative-text">{{ alternative.text }}</span>
+                    </div>
+                  </div>
+                </div>
+
 
                 <!-- Questões para testar e compilar o codigo -->
                 <div class="code-type" *ngIf="!question.isForm">

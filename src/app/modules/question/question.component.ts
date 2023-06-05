@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from 'src/app/models/question';
+import { Alternative, Question } from 'src/app/models/question';
 import { QuestionService } from 'src/app/services/question-service/question.service';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/services/event-service/event-service.service';
@@ -47,6 +47,20 @@ export class QuestionComponent implements OnInit {
     // if(this.question.id_question == 0) {
     //   this.getQuestionAlternatives(1);
     // }
+  }
+
+  public checkAnswer(alternative: Alternative): void {
+    this.question.alternatives?.forEach(a => {
+      if (a === alternative) {
+        a.selected = true;
+        a.correct = a.isCorrect;
+      } else {
+        a.selected = false;
+        if (a.isCorrect) {
+          a.correct = true;
+        }
+      }
+    });
   }
 
   public getQuestion(questionId: number) {

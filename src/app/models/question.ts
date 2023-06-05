@@ -14,4 +14,7 @@ export interface Alternative {
   question_id: number;
   option: string;
   text: string;
+  isCorrect: boolean;
+  selected?: boolean;
+  correct?: boolean;
 }

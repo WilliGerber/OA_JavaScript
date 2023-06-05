@@ -28,10 +28,35 @@
                 }
             }
             .alternative:hover {
-                background-color: var(--color3);
+                background-color: var(--color10);
                 border-radius: 14px;
                 cursor: pointer;
+            }
+
+            .selected {
+              background-color: white;
+              &:hover {
+                background-color: white;
+
+              }
+            }
+
+            .correct {
+              background-color: greenyellow;
+              &:hover {
+                background-color: greenyellow;
+
+              }
+            }
+
+            .incorrect {
+              background-color: red;
+              &:hover {
+                background-color: red;
+
+              }
             }
         }
     }
 }
+
