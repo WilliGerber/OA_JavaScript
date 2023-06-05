@@ -16,7 +16,11 @@ export class LearnService {
 
   constructor(private http: HttpClient) {}
   //Levels
-  getLearn(): Observable<Learn[]> {
+  getLearns(): Observable<Learn[]> {
     return this.http.get<Learn[]>(this.apiUrl + "learn");
+  }
+
+  getLearn(learnId: number): Observable<Learn> {
+    return this.http.get<Learn>(this.apiUrl + 'learn/' + learnId);
   }
 }

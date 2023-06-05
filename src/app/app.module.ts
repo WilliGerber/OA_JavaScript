@@ -33,6 +33,7 @@ import { ContentService } from './services/content-service/content.service';
 import { IntroComponent } from './modules/intro/intro.component';
 import { LearnManagerComponent } from './modules/admin/learn-manager/learn-manager.component';
 import { InitialComponent } from './modules/initial/initial.component';
+import { EventService } from './services/event-service/event-service.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { InitialComponent } from './modules/initial/initial.component';
   ],
   providers: [
     QuestionService,
-    ContentService
+    ContentService,
+    EventService
   ],
   bootstrap: [AppComponent]
 })

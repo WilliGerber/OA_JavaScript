@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Question } from 'src/app/models/question';
 import { QuestionService } from 'src/app/services/question-service/question.service';
 import { ActivatedRoute } from '@angular/router';
+import { EventService } from 'src/app/services/event-service/event-service.service';
 
 
 @Component({
@@ -24,12 +25,13 @@ export class QuestionComponent implements OnInit {
 
   constructor(
     private questionService: QuestionService,
+    private eventService: EventService,
     private route: ActivatedRoute
     ) {}
 
   ngOnInit(): void {
-    this.questionService.questionSelected$.subscribe((question: Question) => {
-      this.question = question;
+    this.eventService.eventQuestionSelected.subscribe((question: Question) => {
+      this.question = question
     });
 
     this.route.params.subscribe(params => {

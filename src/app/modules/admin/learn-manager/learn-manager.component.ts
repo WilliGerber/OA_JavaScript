@@ -15,8 +15,8 @@ export class LearnManagerComponent implements OnInit {
     id_learn: 0,
     title: '',
     tag: '',
-    level_id: '',
-    subject_id: '',
+    level_id: 0,
+    subject_id: 0,
     text: ''
   };
   public formType: boolean = false;

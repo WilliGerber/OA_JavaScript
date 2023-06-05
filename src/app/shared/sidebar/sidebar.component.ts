@@ -13,6 +13,7 @@ import { Learn } from 'src/app/models/learn';
 import { ContentComponent } from 'src/app/modules/content/content.component';
 import { QuestionComponent } from 'src/app/modules/question/question.component';
 import { LearningComponent } from 'src/app/modules/learning/learning.component';
+import { EventService } from 'src/app/services/event-service/event-service.service';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class SidebarComponent implements OnInit {
     private questionService: QuestionService,
     private contentService: ContentService,
     private learnService: LearnService,
+    private eventService: EventService,
     private route: ActivatedRoute,
     private router: Router
     ) {}
@@ -134,7 +136,11 @@ export class SidebarComponent implements OnInit {
     });
   }
 
-  selectNavRoute(item: Question) {
-    this.questionSelected.emit(item);
+  selectNavRoute(item: any) {
+    if(item.id_question) {
+      this.eventService.eventQuestionSelected.emit(item);
+    } else if (item.id_learn) {
+      this.eventService.eventLearnSelected.emit(item);
+    }
   }
 }
