@@ -5,6 +5,11 @@
       <mat-option [value]="1">Questões</mat-option>
     </mat-select>
   </div>
+  <div class="sub-filter" *ngIf="(learnComponent || questionComponent || selectedComponent >= 0)">
+    <mat-select  [(value)]="selectedSubject" class="sub-select" placeholder="Matéria" (selectionChange)="getRoutes($event)">
+      <mat-option *ngFor="let subject of subjects" [value]="subject">{{ subject.description }}</mat-option>
+    </mat-select>
+  </div>
   <div class="admin-manager" *ngIf="isAdmin && (learnComponent || questionComponent)">
     <div class="add">
       <mat-icon>add</mat-icon>
@@ -12,11 +17,6 @@
         Adicionar
       </span>
     </div>
-  </div>
-  <div class="sub-filter" *ngIf="(learnComponent || questionComponent || selectedComponent >= 0)">
-    <mat-select  [(value)]="selectedSubject" class="sub-select" placeholder="Matéria" (selectionChange)="getRoutes($event)">
-      <mat-option *ngFor="let subject of subjects" [value]="subject">{{ subject.description }}</mat-option>
-    </mat-select>
   </div>
   <ul>
     <li *ngFor="let navRoute of navRoutes">

@@ -1,7 +1,9 @@
 <header>
   <div class="logo col-2">
-    <img src="caminho_para_o_logo.png" alt="Logo da empresa">
-    <mat-icon (click)="expandMenu.emit()">menu</mat-icon>
+    <div>
+      <h1>UniDEV</h1>
+    </div>
+    <!-- <mat-icon (click)="expandMenu.emit()">menu</mat-icon> -->
   </div>
   <div class="center col-8">
     <div class="ranking">
@@ -10,9 +12,9 @@
     </div>
     <nav class="learning-menu">
       <ul class="menu">
-        <li class="learning"><a href="#">HTML5</a></li>
-        <li class="learning"><a href="#">CSS3</a></li>
-        <li class="learning"><a href="#">JavaScript</a></li>
+        <li class="learning"><a [routerLink]="'introducao/html5'">HTML5</a></li>
+        <li class="learning"><a [routerLink]="'introducao/css3'">CSS3</a></li>
+        <li class="learning"><a [routerLink]="'introducao/javascript'">JavaScript</a></li>
       </ul>
     </nav>
   </div>
@@ -21,4 +23,3 @@
     <a href="#" class="signup-btn">Cadastre-se</a> -->
   </div>
 </header>
-  

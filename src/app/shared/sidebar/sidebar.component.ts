@@ -66,15 +66,15 @@ export class SidebarComponent implements OnInit {
       this.urlLearn = '/admin/cadastro-conteudo';
       this.isAdmin = true;
     }
-
     else if (route.component == ContentComponent) {
+      this.urlQuestions = '/conteudo/questoes';
+      this.urlLearn = '/conteudo/aprendizado';
       if (route.children[0].component == QuestionComponent) {
         this.selectedComponent = 1
       } else if (route.children[0].component == LearningComponent) {
         this.selectedComponent = 0
       }
     }
-
     if (this.route.snapshot.queryParamMap.get('subject_id') && this.selectedComponent >= 0) {
       this.gettersBySubjectId(this.selectedSubject.id_subject);
     }
@@ -86,7 +86,7 @@ export class SidebarComponent implements OnInit {
       this.gettersBySubjectId(this.selectedSubject.id_subject)
     }
     this.navRoutes = null;
-    if(this.isAdmin) {
+    // if(this.isAdmin) {
       if (this.selectedComponent == 0) {
         this.learnComponent = true
         this.questionComponent = false
@@ -96,7 +96,7 @@ export class SidebarComponent implements OnInit {
         this.learnComponent = false
         this.router.navigate([this.urlQuestions])
       }
-    }
+    // }
   }
   getRoutes(event: MatSelectChange) {
     const subject: Subject = event.value as Subject;
