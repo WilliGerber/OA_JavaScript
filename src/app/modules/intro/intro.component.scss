@@ -1,11 +1,24 @@
 .section {
+  display: flex;
   flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
   .conteudos {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
     .card {
-      width: 90%;
+      min-width: 90%;
+      height: 100%;
+      textarea {
+        border: none;
+        background-color: var(--color2);
+        min-height: 50vh;
+        overflow: hidden;
+        resize: none;
+
+      }
       .navigate-content {
         display: flex;
         flex-direction: column;

@@ -10,6 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 import { AdminComponent } from 'src/app/modules/admin/admin.component';
 import { Router } from '@angular/router';
 import { Learn } from 'src/app/models/learn';
+import { ContentComponent } from 'src/app/modules/content/content.component';
+import { QuestionComponent } from 'src/app/modules/question/question.component';
+import { LearningComponent } from 'src/app/modules/learning/learning.component';
 
 
 @Component({
@@ -21,7 +24,7 @@ import { Learn } from 'src/app/models/learn';
 export class SidebarComponent implements OnInit {
 
   @Input() expandMenu: boolean = true;
-  @Output() itemSelected: EventEmitter<Question | Learn> = new EventEmitter<Question | Learn>();
+  @Output() questionSelected: EventEmitter<Question> = new EventEmitter<Question>();
 
   public questions: Question[] = [];
   public navRoutes: any;
@@ -49,20 +52,29 @@ export class SidebarComponent implements OnInit {
   }
 
   initialize(route: any) {
-    console.log(route)
     this.getSubjects();
+
+
+    const subjectIdParam = this.route.snapshot.queryParamMap.get('subject_id');
+    this.selectedSubject = subjectIdParam ? parseInt(subjectIdParam, 10) : 0;
+
     if (route.component == AdminComponent) {
       this.urlQuestions = '/admin/cadastro-questoes';
       this.urlLearn = '/admin/cadastro-conteudo';
       this.isAdmin = true;
     }
-    // else if (route.component == ContentComponent) {
-    //   if (route.children[0].component == QuestionComponent) {
-    //     this.getQuestions();
-    //   } else if (route.component == LearningComponent) {
-    //     this.getLearnContent();
-    //   }
-    // }
+
+    else if (route.component == ContentComponent) {
+      if (route.children[0].component == QuestionComponent) {
+        this.selectedComponent = 1
+      } else if (route.children[0].component == LearningComponent) {
+        this.selectedComponent = 0
+      }
+    }
+
+    if (this.route.snapshot.queryParamMap.get('subject_id') && this.selectedComponent >= 0) {
+      this.gettersBySubjectId(this.selectedSubject);
+    }
   }
 
   selectComponent(option: number){
@@ -91,6 +103,7 @@ export class SidebarComponent implements OnInit {
   gettersBySubjectId(subjectId: number) {
     if (this.selectedComponent == 0) {
       this.getLearnContentsBySubjectId(subjectId)
+
     } else if (this.selectedComponent == 1) {
       this.getQuestionsBySubjectId(subjectId)
     }
@@ -121,7 +134,7 @@ export class SidebarComponent implements OnInit {
     });
   }
 
-  selectNavRoute(item: Question | Learn) {
-    this.itemSelected.emit(item);
+  selectNavRoute(item: Question) {
+    this.questionSelected.emit(item);
   }
 }

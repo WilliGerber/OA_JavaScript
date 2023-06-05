@@ -11,9 +11,15 @@ import { Question } from 'src/app/models/question';
 export class ContentComponent implements OnInit {
 
   // @Input() selectedItem: Question | Learn;
+  selectedQuestion: Question | null = null;
 
   isQuestionRoute: boolean = false;
   isLearningRoute: boolean = false;
+  selectedItem: Question | Learn | undefined;
+
+  handleItemSelected(item: Question | Learn) {
+    this.selectedItem = item;
+  }
 
   constructor(
     private router: Router,

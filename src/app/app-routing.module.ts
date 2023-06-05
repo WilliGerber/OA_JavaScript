@@ -36,22 +36,8 @@ const routes: Routes = [
         component: InitialComponent
       },
       {
-        path: 'introducao',
-        component: IntroComponent,
-        children: [
-          {
-            path: 'html',
-            component: IntroComponent
-          },
-          {
-            path: 'css',
-            component: IntroComponent
-          },
-          {
-            path: 'javascript',
-            component: IntroComponent
-          }
-        ]
+        path: 'introducao/:subject',
+        component: IntroComponent
       },
       {
         path: 'conteudo',
@@ -63,13 +49,12 @@ const routes: Routes = [
           },
           {
             path: 'questoes/:id',
-            component: QuestionComponent // Componente para exibir detalhes da questão
+            component: QuestionComponent
           },
           {
             path: 'aprendizado',
             component: LearningComponent
           }
-
         ]
       },
       {

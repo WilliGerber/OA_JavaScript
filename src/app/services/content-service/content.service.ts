@@ -26,4 +26,18 @@ export class ContentService {
     const url = `${this.apiUrl}learn/filter/${subjectId}`;
     return this.http.get<Learn[]>(url);
   }
+
+  getContentByLevelAndSubject(levelId: number, subjectId: number): Observable<Learn[]> {
+    const url = `${this.apiUrl}learnByLevelAndSubject/${levelId}/${subjectId}`;
+    return this.http.get<Learn[]>(url);
+  }
+
+  getAllLearnContents(): Observable<Learn[]> {
+    return this.http.get<Learn[]>(this.apiUrl + 'learn');
+  }
+
+  getLearnContentById(learnId: number): Observable<Learn> {
+    const url = `${this.apiUrl}learn/${learnId}`;
+    return this.http.get<Learn>(url);
+  }
 }

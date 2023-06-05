@@ -1,6 +1,6 @@
 <div [class.expand]="expandMenu" class="sidebar">
   <div class="filter">
-    <mat-select (selectionChange)="selectComponent($event.value)" placeholder="Tipo" class="sub-select">
+    <mat-select [(value)]="selectedComponent" (selectionChange)="selectComponent($event.value)" placeholder="Tipo" class="sub-select">
       <mat-option [value]="0">Conteúdo</mat-option>
       <mat-option [value]="1">Questões</mat-option>
     </mat-select>
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="sub-filter" *ngIf="(learnComponent || questionComponent || selectedComponent >= 0)">
-    <mat-select  class="sub-select" placeholder="Matéria" (selectionChange)="getRoutes($event.value)">
+    <mat-select  [(value)]="selectedSubject" class="sub-select" placeholder="Matéria" (selectionChange)="getRoutes($event.value)">
       <mat-option *ngFor="let subject of subjects" [value]="subject.id_subject">{{ subject.description }}</mat-option>
     </mat-select>
   </div>
