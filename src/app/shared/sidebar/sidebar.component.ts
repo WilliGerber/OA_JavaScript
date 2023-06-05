@@ -14,6 +14,7 @@ import { ContentComponent } from 'src/app/modules/content/content.component';
 import { QuestionComponent } from 'src/app/modules/question/question.component';
 import { LearningComponent } from 'src/app/modules/learning/learning.component';
 import { EventService } from 'src/app/services/event-service/event-service.service';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class SidebarComponent implements OnInit {
   public navRoutes: any;
   public isAdmin: boolean = false;
   public subjects: Subject[] = [];
-  public selectedSubject: number = 0;
+  public selectedSubject!: Subject;
   public selectedComponent: number = -1;
   public questionComponent: boolean = false;
   public learnComponent: boolean = false;
@@ -58,7 +59,7 @@ export class SidebarComponent implements OnInit {
 
 
     const subjectIdParam = this.route.snapshot.queryParamMap.get('subject_id');
-    this.selectedSubject = subjectIdParam ? parseInt(subjectIdParam, 10) : 0;
+    // this.selectedSubject = subjectIdParam ? parseInt(subjectIdParam, 10) : 0;
 
     if (route.component == AdminComponent) {
       this.urlQuestions = '/admin/cadastro-questoes';
@@ -75,14 +76,14 @@ export class SidebarComponent implements OnInit {
     }
 
     if (this.route.snapshot.queryParamMap.get('subject_id') && this.selectedComponent >= 0) {
-      this.gettersBySubjectId(this.selectedSubject);
+      this.gettersBySubjectId(this.selectedSubject.id_subject);
     }
   }
 
   selectComponent(option: number){
     this.selectedComponent = option;
-    if (this.selectedSubject > 0) {
-      this.gettersBySubjectId(this.selectedSubject)
+    if (this.selectedSubject.id_subject > 0) {
+      this.gettersBySubjectId(this.selectedSubject.id_subject)
     }
     this.navRoutes = null;
     if(this.isAdmin) {
@@ -97,9 +98,13 @@ export class SidebarComponent implements OnInit {
       }
     }
   }
-  getRoutes(subjectId: number) {
-    this.selectedSubject = subjectId
-    this.gettersBySubjectId(subjectId)
+  getRoutes(event: MatSelectChange) {
+    const subject: Subject = event.value as Subject;
+    console.log(subject)
+    this.selectedSubject = subject
+    console.log(this.selectedSubject)
+    this.eventService.eventSubjectSelected.emit(subject);
+    this.gettersBySubjectId(subject.id_subject)
   }
 
   gettersBySubjectId(subjectId: number) {
@@ -137,6 +142,7 @@ export class SidebarComponent implements OnInit {
   }
 
   selectNavRoute(item: any) {
+    console.log(item)
     if(item.id_question) {
       this.eventService.eventQuestionSelected.emit(item);
     } else if (item.id_learn) {

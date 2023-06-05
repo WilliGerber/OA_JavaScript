@@ -33,16 +33,20 @@ export class QuestionComponent implements OnInit {
     this.eventService.eventQuestionSelected.subscribe((question: Question) => {
       this.question = question
     });
+    this.eventService.eventSubjectSelected.subscribe((question: Question) => {
+      this.question = question;
+      // this.getQuestionAlternatives(question.id_question);
+    });
 
     this.route.params.subscribe(params => {
       if(params['id']) {
-        this.questionId = params['id'];
+        console.log(this.questionId = params['id']);
       }
     });
 
-    if(this.question.id_question == 0) {
-      this.getQuestion(1);
-    }
+    // if(this.question.id_question == 0) {
+    //   this.getQuestionAlternatives(1);
+    // }
   }
 
   public getQuestion(questionId: number) {
@@ -51,4 +55,20 @@ export class QuestionComponent implements OnInit {
         this.question = result;
       });
   }
+
+  public getQuestionAlternatives(questionId: number) {
+    this.questionService.getQuestionAlternatives(questionId)
+      .subscribe(result => {
+        this.question = result;
+      });
+  }
+
+  // getQuestionsBySubjectId
+
+  // public getQuestionsBySubjectId(questionId: number) {
+  //   this.questionService.getQuestionsBySubjectId(questionId)
+  //     .subscribe(result => {
+  //       this.questions = result;
+  //     });
+  // }
 }

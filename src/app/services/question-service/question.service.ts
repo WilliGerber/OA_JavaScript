@@ -26,6 +26,11 @@ export class QuestionService {
     return this.http.get<Question>(this.apiUrl + '/' + questionId);
   }
 
+  getQuestionAlternatives(questionId: number): Observable<Question> {
+    const url = `${this.apiUrl}/${questionId}/alternatives`; // Nova rota para buscar as alternativas da questão
+    return this.http.get<Question>(url);
+  }
+
   getQuestionsBySubjectId(subjectId: number): Observable<Question[]> {
     const url = `${this.apiUrl}/filter/${subjectId}`;
     return this.http.get<Question[]>(url);

@@ -6,4 +6,12 @@ export interface Question {
     subject_id: string;
     isForm: boolean;
     question: string;
+    alternatives?: Alternative[];
+}
+
+export interface Alternative {
+  id_alternative: number;
+  question_id: number;
+  option: string;
+  text: string;
 }

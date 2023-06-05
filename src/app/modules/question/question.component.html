@@ -16,24 +16,12 @@
 
                 <!-- Questões do tipo formulário -->
                 <div class="form-type" *ngIf="question.isForm">
-                    <div class="alternatives">
-                        <div class="alternative">
-                            <span class="option">a)</span>
-                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
-                        </div>
-                        <div class="alternative">
-                            <span class="option">b)</span>
-                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
-                        </div>
-                        <div class="alternative">
-                            <span class="option">c)</span>
-                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
-                        </div>
-                        <div class="alternative">
-                            <span class="option">d)</span>
-                            <span class="alternative-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et modi itaque quibusdam corporis quisquam ipsa consequuntur alias praesentium totam quis facilis, accusamus animi temporibus culpa iusto suscipit provident necessitatibus dolorem.</span>
-                        </div>
+                  <div class="alternatives">
+                    <div class="alternative" *ngFor="let alternative of question.alternatives">
+                      <span class="option">{{ alternative.option }}</span>
+                      <span class="alternative-text">{{ alternative.text }}</span>
                     </div>
+                  </div>
                 </div>
 
                 <!-- Questões para testar e compilar o codigo -->
