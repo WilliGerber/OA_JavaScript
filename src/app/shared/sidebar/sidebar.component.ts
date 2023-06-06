@@ -81,6 +81,7 @@ export class SidebarComponent implements OnInit {
   }
 
   selectComponent(option: number){
+    console.log(this.selectedSubject)
     this.selectedComponent = option;
     if (this.selectedSubject.id_subject > 0) {
       this.gettersBySubjectId(this.selectedSubject.id_subject)

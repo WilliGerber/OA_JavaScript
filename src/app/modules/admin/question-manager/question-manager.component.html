@@ -72,9 +72,10 @@
                     <div class="card add-button">
                         <mat-icon>add</mat-icon>
                     </div>
-                    <button class="btn-save" (click)="saveQuestion()">Salvar</button>
+                    <button class="btn-save" (click)="saveQuestion()" *ngIf="question.isForm">Salvar</button>
                 </div>
             </div>
+            <button class="btn-save" (click)="saveQuestion()" *ngIf="!question.isForm">Salvar</button>
         </div>
     </mat-card>
 </div>
