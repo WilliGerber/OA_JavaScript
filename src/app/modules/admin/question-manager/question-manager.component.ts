@@ -5,6 +5,8 @@ import { Subject } from 'src/app/models/subject';
 import { ContentService } from 'src/app/services/content-service/content.service';
 import { QuestionService } from 'src/app/services/question-service/question.service';
 import { Observer } from 'rxjs';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 @Component({
   selector: 'app-question-manager',
   templateUrl: './question-manager.component.html',
@@ -25,6 +27,9 @@ export class QuestionManagerComponent implements OnInit {
   public formType: boolean = false;
   public levels: Level[] = [];
   public subjects: Subject[] = [];
+  
+  public Editor = ClassicEditor;
+  public textoFormatado: string = '';
 
   constructor(
     private questionService: QuestionService,

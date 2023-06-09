@@ -31,7 +31,18 @@
                     </div>
                 </div>
                 <div class="question-header" [(ngModel)]="question.question">
-                    <textarea id="message" class="question-header-input" placeholder="Pergunta" required [(ngModel)]="question.question" name="header"></textarea>
+                    <div id="editor"></div>
+                    <textarea id="editor" class="question-header-input" placeholder="Pergunta" required [(ngModel)]="question.question" name="header"></textarea>
+                    <script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                    </script>
                 </div>
             </form>
             <div class="alternatives" *ngIf="question.isForm">
